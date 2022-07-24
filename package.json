@@ -8,6 +8,7 @@
   },
   "license": "Apache 2.0",
   "dependencies": {
+    "marked": "^4.0.18",
     "tesseract.js": "^2.1.5"
   }
 }
