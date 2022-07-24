@@ -1,0 +1,13 @@
+{
+  "name": "pdf-scan-to-text",
+  "version": "0.1.0",
+  "description": "Converting a (badly) scanned PDF to text",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./node/index.js"
+  },
+  "license": "Apache 2.0",
+  "dependencies": {
+    "tesseract.js": "^2.1.5"
+  }
+}
