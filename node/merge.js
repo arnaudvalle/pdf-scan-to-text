@@ -3,7 +3,9 @@ const fs = require('fs/promises');
 
 (async () => {
     const [first, last] = [2, 3];
-    let combinedOutput = '';
+    const title = 'Le singe pèlerin';
+    const author = "Wu Cheng'en";
+    let combinedOutput = `# ${title}\n\n ## ${author}\n\n`;
 
     for (let currentPage = first; currentPage <= last; currentPage++) {
         console.log('👀 Reading page:', currentPage);
