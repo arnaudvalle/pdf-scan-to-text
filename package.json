@@ -6,7 +6,7 @@
   "scripts": {
     "detect": "node ./node/detect.js",
     "merge": "node ./node/merge.js",
-    "md": "npx marked -i chap1.txt -o chap1.html"
+    "md": "npx marked -i final.txt -o final.html"
   },
   "license": "Apache 2.0",
   "dependencies": {
