@@ -18,7 +18,7 @@ const fs = require('fs/promises');
     }
 
     try {
-        console.log('🖨️  Writing combined document');
+        console.log('📄🔗=📕  Writing combined document');
         await fs.writeFile(path.join(__dirname, '..', 'output', 'final.txt'), combinedOutput);
     } catch (err) {
         console.log(err);
