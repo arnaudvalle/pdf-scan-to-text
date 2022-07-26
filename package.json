@@ -4,8 +4,9 @@
   "description": "Converting a (badly) scanned PDF to text",
   "main": "index.js",
   "scripts": {
-    "start": "node ./node/detect.js",
-    "merge": "node ./node/merge.js"
+    "detect": "node ./node/detect.js",
+    "merge": "node ./node/merge.js",
+    "md": "npx marked -i chap1.txt -o chap1.html"
   },
   "license": "Apache 2.0",
   "dependencies": {
