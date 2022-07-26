@@ -14,12 +14,10 @@ scheduler.addWorker(worker);
     await worker.loadLanguage('fra');
     await worker.initialize('fra');
 
-    const pages = ['2', '3'];
+    const [first, last] = ['2', '3'];
 
-    for (let index = 0; index < pages.length; index++) {
-        const currentPage = pages[index];
-
-        console.log(`Analysing page: ${currentPage}.jpeg`);
+    for (let currentPage = first; currentPage <= last; currentPage++) {
+        console.log(`🧠 Analysing page: ${currentPage}.jpeg`);
         
         const { data: { text } } = await scheduler.addJob('recognize', path.join(__dirname, '..', 'images', `${currentPage}.jpeg`));
 
