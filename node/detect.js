@@ -2,14 +2,14 @@ const { createWorker, createScheduler, setLogging } = require('tesseract.js');
 const path = require('path');
 const fs = require('fs');
 
-// Turn on to track down errors more easily.
-setLogging(true);
+// Set to true to track down errors more easily.
+setLogging(false);
 
 const scheduler = createScheduler();
 
 (async () => {
     // Load one (or more) workers for better performance.
-    for (let i = 0; i < 1; i++) {
+    for (let i = 0; i < 2; i++) {
         const worker = createWorker();
         await worker.load();
         await worker.loadLanguage('fra');
@@ -31,5 +31,6 @@ const scheduler = createScheduler();
         console.log(`✅ Done writing file: ${currentPage}.txt`);
     };
 
+    // We're all done - see ya 👋
     await scheduler.terminate();
 })();
