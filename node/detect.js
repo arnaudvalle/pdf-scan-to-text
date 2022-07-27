@@ -1,22 +1,25 @@
-const { createWorker, createScheduler } = require('tesseract.js');
+const { createWorker, createScheduler, setLogging } = require('tesseract.js');
 const path = require('path');
 const fs = require('fs');
 
+// Turn on to track down errors more easily.
+setLogging(true);
+
 const scheduler = createScheduler();
-const worker = createWorker({
-    langPath: path.join(__dirname, '..', 'lang-data'), 
-    logger: m => console.log(m),
-});
-scheduler.addWorker(worker);
 
 (async () => {
-    await worker.load();
-    await worker.loadLanguage('fra');
-    await worker.initialize('fra');
+    // Load one (or more) workers for better performance.
+    for (let i = 0; i < 1; i++) {
+        const worker = createWorker();
+        await worker.load();
+        await worker.loadLanguage('fra');
+        await worker.initialize('fra');
 
-    const [first, last] = ['2', '3'];
+        scheduler.addWorker(worker);
+    }
 
-    for (let currentPage = first; currentPage <= last; currentPage++) {
+    // Initial value: first page / Up to: last page
+    for (let currentPage = 13; currentPage <= 13; currentPage++) {
         console.log(`🧠✨🔮 Analysing page: ${currentPage}.jpeg`);
         
         const { data: { text } } = await scheduler.addJob('recognize', path.join(__dirname, '..', 'images', `${currentPage}.jpeg`));
@@ -28,5 +31,5 @@ scheduler.addWorker(worker);
         console.log(`✅ Done writing file: ${currentPage}.txt`);
     };
 
-    await worker.terminate();
+    await scheduler.terminate();
 })();
