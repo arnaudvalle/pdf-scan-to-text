@@ -1,12 +1,12 @@
 {
   "name": "pdf-scan-to-text",
   "version": "0.1.0",
-  "description": "Converting a (badly) scanned PDF to text",
+  "description": "Convert a (badly) scanned PDF to text",
   "main": "index.js",
   "scripts": {
     "detect": "node ./node/detect.js",
     "merge": "node ./node/merge.js",
-    "md": "npx marked -i final.txt -o final.html"
+    "format": "npx marked -i final.txt -o final.html"
   },
   "license": "Apache 2.0",
   "dependencies": {

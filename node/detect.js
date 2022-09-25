@@ -19,7 +19,7 @@ const scheduler = createScheduler();
     }
 
     // Initial value: first page / Up to: last page
-    for (let currentPage = 13; currentPage <= 13; currentPage++) {
+    for (let currentPage = 1; currentPage <= 10; currentPage++) {
         console.log(`🧠✨🔮 Analysing page: ${currentPage}.jpeg`);
         
         const { data: { text } } = await scheduler.addJob('recognize', path.join(__dirname, '..', 'images', `${currentPage}.jpeg`));
