@@ -1,13 +1,31 @@
-# Step 1: Automator 🤖🔧
+# pdf-scan-to-text
 
-1. Use Automator to split the PDF (1 document per page)
-2. Use Automator to transform each PDF page into an image
+Convert a (badly) scanned PDF to formatted text.
 
-# Step 2: AI magic 🧠✨🔮
+## Step 1: Automator 🤖🔧
 
-1. For each image, extract the text with tesseract.js
-2. Write a file with whatever got extracted
+- Use Automator to split the PDF (1 document per page)
+- Use Automator to transform each PDF page into an image
 
-# Step 3: 📄🔗=📕
-3. Merge all files together
-4. Format to HTML
+## Step 2: AI magic 🧠✨🔮
+
+- For each image, extract the text with tesseract.js
+- Write a file with whatever got extracted
+
+```shell
+npm run detect
+```
+
+## Step 3: 📄🔗=📕
+
+- Merge all files together
+   
+```shell
+npm run merge
+```
+
+- Format to HTML
+
+```shell
+npm run format
+```
